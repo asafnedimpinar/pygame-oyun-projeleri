@@ -34,6 +34,16 @@ ball.penup()
 ball.dx = 0.15  # X eksenindeki hareket hızı
 ball.dy = 0.15  # Y eksenindeki hareket hızı
 
+yazi = turtle.Turtle()
+yazi.speed(0)
+yazi.color("white")
+yazi.goto(0,260)
+yazi.write("Oyuncu A : 0    Oyuncu B: 0",align="center",font=("Courier",24,"bold"))
+yazi.hideturtle()
+puan_a =0
+puan_b = 0
+
+
 # Sol raketin yukarı hareketi
 def raket_a_up():
     y = raket_a.ycor()
@@ -83,11 +93,18 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx = ball.dx * -1
+        puan_a = puan_a +1
+        yazi.clear()
+        yazi.write("Oyuncu A : {}    Oyuncu B: {}".format(puan_a,puan_b),align="center",font=("Courier",24,"bold"))
 
     # Topun sol sınıra ulaşıp ulaşmadığını kontrol etme
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx = ball.dx * -1 
+        puan_b = puan_b +1
+        yazi.clear()
+        yazi.write("Oyuncu A : {}    Oyuncu B: {}".format(puan_a,puan_b),align="center",font=("Courier",24,"bold"))
+
     
     # Topun sağ raket ile temasını kontrol etme
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < raket_b.ycor() + 60 and ball.ycor() > raket_b.ycor() - 60):
@@ -102,3 +119,4 @@ while True:
 
 # Ana ekran döngüsü
 pencere.mainloop()
+
