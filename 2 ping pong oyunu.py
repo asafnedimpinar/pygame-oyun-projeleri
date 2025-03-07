@@ -35,8 +35,8 @@ ball.speed(0)
 ball.shape("circle")
 ball.color("red")
 ball.penup()
-ball.dx = 0.15  # X eksenindeki hareket hızı
-ball.dy = 0.15  # Y eksenindeki hareket hızı
+ball.dx = 0.15  
+ball.dy = 0.15  
 
 yazi = turtle.Turtle()
 yazi.speed(0)
@@ -83,7 +83,7 @@ pencere.onkeypress(raket_b_down, "Down")
 
 # Oyun döngüsü
 while True:
-    pencere.update()  # Ekrani yenileme
+    pencere.update()  
 
     # Topun hareketini güncelleme
     ball.setx(ball.xcor() + ball.dx)
